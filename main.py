@@ -7,11 +7,11 @@ def get_winner(filename='result.json', message_id=175):
         data = json.loads(f.read())
 
         unique_users = set()
-        user_by_name = {}
+        user_name_by_id = {}
 
         for i in data["messages"]:
             if i.get("reply_to_message_id") == message_id:
-                user_by_name[i["from_id"]] = f'{i["from_id"]}: {i["from"]}'
+                user_name_by_id[i["from_id"]] = f'{i["from_id"]}: {i["from"]}'
                 unique_users.add(i["from_id"])
 
         users_cnt = len(unique_users)
@@ -21,7 +21,7 @@ def get_winner(filename='result.json', message_id=175):
 
             print("Возможно им повезёт! \n")
             for i in random_users:
-                print(user_by_name[i])
+                print(user_name_by_id[i])
             print("")
 
             print(f"Текущее количество участников {users_cnt}!")
@@ -32,12 +32,12 @@ def get_winner(filename='result.json', message_id=175):
         print(f"Финал! Количество участников {users_cnt}")
         random_users = random.sample(random_users, k=users_cnt)
         for i in random_users:
-            print(user_by_name[i])
+            print(user_name_by_id[i])
 
         print("")
         input("Нажми Enter чтобы определить победителя! \n")
         winner = random.sample(random_users, k=1)[0]
-        print(f"Победил пользователь с ID и именем: {user_by_name[winner]}")
+        print(f"Победил пользователь с ID и именем: {user_name_by_id[winner]}")
 
 
 # Press the green button in the gutter to run the script.
