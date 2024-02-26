@@ -17,10 +17,10 @@ def get_winner(filename='result.json', message_id=175):
         users_cnt = len(unique_users)
 
         while users_cnt >= 3:
-            random_users = random.sample(list(unique_users), k=users_cnt)
+            unique_users = random.sample(list(unique_users), k=users_cnt)
 
             print("Возможно им повезёт! \n")
-            for i in random_users:
+            for i in unique_users:
                 print(user_name_by_id[i])
             print("")
 
@@ -30,13 +30,13 @@ def get_winner(filename='result.json', message_id=175):
 
         print("")
         print(f"Финал! Количество участников {users_cnt}")
-        random_users = random.sample(random_users, k=users_cnt)
-        for i in random_users:
+        unique_users = random.sample(unique_users, k=users_cnt)
+        for i in unique_users:
             print(user_name_by_id[i])
 
         print("")
         input("Нажми Enter чтобы определить победителя! \n")
-        winner = random.sample(random_users, k=1)[0]
+        winner = random.sample(unique_users, k=1)[0]
         print(f"Победил пользователь с ID и именем: {user_name_by_id[winner]}")
 
 
