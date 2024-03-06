@@ -1,5 +1,6 @@
 import json
 import random
+import sys
 
 
 def get_winner(filename='result.json', message_id=175):
@@ -42,4 +43,5 @@ def get_winner(filename='result.json', message_id=175):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    get_winner()
+    print(f"message {sys.argv[1]}")
+    get_winner(message_id=int(sys.argv[1]))
