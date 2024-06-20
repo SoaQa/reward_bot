@@ -1,9 +1,10 @@
 import json
+import os
 import random
 
 
-winners_cnt = 4
-message_id = 1101
+winners_cnt = int(os.environ['WINNERS_CNT'])
+message_id = int(os.environ['MESSAGE_ID'])
 
 
 def get_winner(filename='result.json'):
@@ -25,7 +26,7 @@ def get_winner(filename='result.json'):
 
         print("Уникльных участников ", users_cnt)
 
-        input("Нажми Enter чтобы получить случайных 4 победителей!")
+        input(f"Нажми Enter чтобы получить случайных {winners_cnt} победителей!")
 
         for i in random.sample(list(unique_users), k=winners_cnt):
             print(i, " ", user_name_by_id[i])
