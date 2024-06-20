@@ -24,7 +24,7 @@ def get_winner(filename='result.json'):
 
         users_cnt = len(unique_users)
 
-        print("Уникльных участников ", users_cnt)
+        print("Уникальных участников ", users_cnt)
 
         input(f"Нажми Enter чтобы получить случайных {winners_cnt} победителей!")
 
