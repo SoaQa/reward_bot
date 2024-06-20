@@ -9,8 +9,6 @@ message_id = int(os.environ['MESSAGE_ID'])
 
 def get_winner(filename='result.json'):
 
-    assert message_id is not None
-
     with open(filename, "r", encoding='utf-8') as f:
         data = json.loads(f.read())
 
