@@ -11,7 +11,7 @@ def get_winner(message_id, filename='result.json'):
         user_name_by_id = {}
 
         for message in data["messages"]:
-            if message.get("reply_to_message_id") == message_id:
+            if message.get("reply_to_message_id") == message_id and message["from_id"] not in unique_users:
                 user_name_by_id[message["from_id"]] = {
                     "from": message["from"],
                     "text": message["text"],
