@@ -15,6 +15,7 @@ def get_winner(message_id, filename='result.json'):
                 user_name_by_id[message["from_id"]] = {
                     "from": message["from"],
                     "text": message["text"],
+                    "date": message["date"],
                 }
                 unique_users.add(message["from_id"])
 
@@ -25,7 +26,7 @@ def get_winner(message_id, filename='result.json'):
 
         winner = random.choice(list(unique_users))
         print(f"{winner}:{user_name_by_id[winner]['from']} победил!")
-        print(f"С сообщением: {user_name_by_id[winner]['text']}")
+        print(f"С сообщением: {user_name_by_id[winner]['date']} {user_name_by_id[winner]['text']}")
 
 
 # Press the green button in the gutter to run the script.
