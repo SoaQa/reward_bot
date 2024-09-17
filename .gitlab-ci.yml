@@ -1,0 +1,7 @@
+stages:
+  - build
+
+job:
+  stage: build
+  script:
+    - echo "CI job is running successfully!"
