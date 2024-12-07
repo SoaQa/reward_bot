@@ -1,0 +1,8 @@
+stages:
+  - build
+
+job:
+  stage: build
+  script:
+    - pip3 install pytest
+    - pytest
